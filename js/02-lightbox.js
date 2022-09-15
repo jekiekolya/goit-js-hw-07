@@ -1,8 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
-
 // Get Ref
 const list = document.querySelector('.gallery');
 
@@ -10,9 +8,9 @@ const list = document.querySelector('.gallery');
 let galleryMarkupString = '';
 function createGalleryMarkup(gallery) {
   for (const img of gallery) {
-    galleryMarkupString += `<li>
-  <a class="gallery__item" href="${img.original}">
-    <img class="gallery__image" src="${img.preview}" alt="Image description" />
+    galleryMarkupString += `<li class="gallery__item">
+  <a class="gallery__link" href="${img.original}">
+    <img class="gallery__image" src="${img.preview}" alt="${img.description}" />
   </a>
 </li>`;
   }
@@ -30,9 +28,8 @@ function onClick(event) {
     return;
   }
 
-  var lightbox = $('.gallery a').simpleLightbox({
-    /* options */
+  var lightbox = new SimpleLightbox('.gallery a', {
+    captionsData: 'alt',
+    captionDelay: 250,
   });
-
-  lightbox.open();
 }

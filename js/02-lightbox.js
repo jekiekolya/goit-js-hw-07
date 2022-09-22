@@ -27,9 +27,8 @@ function onClick(event) {
   if (event.target.nodeName !== 'IMG') {
     return;
   }
-
-  var lightbox = new SimpleLightbox('.gallery a', {
-    captionsData: 'alt',
-    captionDelay: 250,
-  });
 }
+var lightbox = new SimpleLightbox('.gallery a', {
+  captionsData: 'alt',
+  captionDelay: 250,
+});
